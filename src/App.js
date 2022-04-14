@@ -6,7 +6,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core';
 import purple from '@material-ui/core/colors/purple';
 
-import AppBar from '@material-ui/core/AppBar';
+import Header from './components/Header';
+import Home from './home';
 
 const theme = createMuiTheme({
   palette: {
@@ -20,14 +21,9 @@ const theme = createMuiTheme({
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <AppBar position="static" color='primary'>
-        <div className='header'>
-          <p className='title'>Lista de compras</p>
-        </div>
-      </AppBar>
-    <div>
-      <h1>Test</h1>
-    </div>
+      <Header />
+    
+      <Home />
     </MuiThemeProvider>
   );
 }
