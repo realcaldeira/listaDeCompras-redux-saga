@@ -11,10 +11,14 @@
 
 .card-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .card-footer {
   height: 40px;
+}
 
+.card-img {
+  object-fit: cover;
 }
