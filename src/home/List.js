@@ -12,6 +12,7 @@ export default function List(){
   return(
     <CustomCard 
       containerClass="list-container"
+      link="/lista"
       footer={<ListFooter />}
      
     >

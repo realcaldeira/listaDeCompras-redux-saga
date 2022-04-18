@@ -5,12 +5,14 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import { Divider } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 import './styles.css';
 
 export default function CustomCard(props){
   return(
     <div className={props.containerClass}>
+      <Link to={props.link}>
         <Card className='card'>
           <CardActionArea className='card-action-area'>
             <CardContent className='card-content'>
@@ -26,6 +28,7 @@ export default function CustomCard(props){
             </>
           )}
         </Card>
+        </Link>
       </div>
   )
 }
