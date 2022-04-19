@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import './styles.css';
 import { Divider } from '@material-ui/core';
 
-export default function Card({ item, footer }){
+export default function Card({ item, toggleProduct, footer }){
 
   return(
       <CustomCard
@@ -18,7 +18,7 @@ export default function Card({ item, footer }){
         <div>
           <div className='list-item-header'>
             <Typography variant='subtitle1' component='h2'>{item.product}</Typography>
-            <Checkbox />
+            <Checkbox onClick={()=> toggleProduct(item.id)} checked={item.checked} />
           </div>
             <Typography component='p'>{item.quantity} {item.unit}</Typography>
             <Typography component='p'>R$ {item.price}</Typography>

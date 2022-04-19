@@ -21,6 +21,7 @@ function CreateList(props){
         {props.list.items.map(item => 
           <Card 
             key={item.id} 
+            toggleProduct={props.toggleProduct}
             item={item} 
             footer={<ListItemFooter item={item} deleteProduct={props.deleteProduct} />} />
         )}   
