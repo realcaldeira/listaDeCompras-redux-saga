@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@mui/material';
 import Button from '@material-ui/core/Button';
 
-const units = ['kg', 'lt', 'un']
+const units = ['Kilos', 'Litros', 'Unidades']
 
 export default function Form(props){
   const [list, setList] = useState('');
@@ -19,8 +19,7 @@ export default function Form(props){
     if(!product || !quantity || !unit || !list){
       setShowError(true)
     }else{
-      props.addProduct({product, quantity, unit, price}, list)
-      setList('');
+      props.addProduct({product, quantity, unit, price}, list);
       setProduct('');
       setQuantity('');
       setUnit('');

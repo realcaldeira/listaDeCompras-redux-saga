@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function ListItemFooter(){
+export default function ListItemFooter({item}){
   return(
     <div className='list-card-footer'>
       <div className='list-card-footer-actions'>
@@ -19,7 +19,7 @@ export default function ListItemFooter(){
           size='1x' 
         />
       </div>
-      <p>Total: R$ 50</p>
+      <p>Total: R$ {item.total}</p>
     </div>
   )
 }
