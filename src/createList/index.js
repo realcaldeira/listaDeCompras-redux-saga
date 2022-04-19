@@ -18,7 +18,12 @@ function CreateList(props){
       <Form addProduct={addProduct} />
 
       <div className='list-items-container'>
-        {props.list.items.map(item => <Card key={item.product} item={item} footer={<ListItemFooter item={item}/>} />)}   
+        {props.list.items.map(item => 
+          <Card 
+            key={item.id} 
+            item={item} 
+            footer={<ListItemFooter item={item} deleteProduct={props.deleteProduct} />} />
+        )}   
       </div>
     </div>
   )

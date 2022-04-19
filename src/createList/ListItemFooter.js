@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function ListItemFooter({item}){
+export default function ListItemFooter({item, deleteProduct}){
   return(
     <div className='list-card-footer'>
       <div className='list-card-footer-actions'>
@@ -14,6 +14,7 @@ export default function ListItemFooter({item}){
           size='1x' 
         />
         <FontAwesomeIcon 
+          onClick={()=> deleteProduct(item.id)}
           icon={faTrash}
           color="#e91e63"
           size='1x' 
