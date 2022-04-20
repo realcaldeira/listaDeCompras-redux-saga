@@ -15,7 +15,10 @@ function CreateList(props){
 
   return(
     <div className='page-container'>
-      <Form addProduct={addProduct} />
+      <Form 
+        addProduct={addProduct}
+        updateProduct={props.updateProduct}
+     />
 
       <div className='list-items-container'>
         {props.list.items.map(item => 

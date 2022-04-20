@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@mui/material';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as FormActions} from '../store/action/form'
 
-const units = ['Kilos', 'Litros', 'Unidades']
+const units = ['Quilos', 'Litros', 'Unidades']
 
-export default function Form(props){
+function Form(props){
   const [list, setList] = useState('');
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -19,14 +22,41 @@ export default function Form(props){
     if(!product || !quantity || !unit || !list){
       setShowError(true)
     }else{
-      props.addProduct({product, quantity, unit, price}, list);
-      setProduct('');
-      setQuantity('');
-      setUnit('');
-      setPrice('');
-      setShowError(false);
+      props.form.action === 'new' ? addItem(product, quantity, unit, price) : updateItem(product, quantity, unit, price)
     }
   }
+
+  function addItem(product, quantity, unit, price){
+    props.addProduct({product, quantity, unit, price}, list);
+    clearState()
+  }
+
+  function updateItem(product, quantity, unit, price){
+    const { id, checked } = props.form.productToUpdate;
+    console.log(props.productToUpdate)
+    props.updateProduct({product, quantity, unit, price, id, checked}, list);
+    clearState();
+    props.finishUpdate();
+  }
+
+  function clearState(){
+    setProduct('');
+    setQuantity('');
+    setUnit('');
+    setPrice('');
+    setShowError(false);
+  }
+
+  useEffect(()=>{
+    if(props.form.action === 'update'){
+      const { product, quantity, unit, price } = props.form.productToUpdate;
+      setProduct(product);
+      setQuantity(quantity);
+      setUnit(unit);
+      setPrice(price);
+      setShowError(false);
+    }
+  },[props.form.action, props.form.productToUpdate])
 
   return(
     <form className='form-container'>
@@ -45,7 +75,7 @@ export default function Form(props){
             color='secondary'
             onClick={handleSubmit}
           >
-            Adicionar
+            Salvar
           </Button>
         </div>
 
@@ -91,3 +121,11 @@ export default function Form(props){
       </form>
   )
 }
+
+const mapStateToProps = state => ({
+  form: state.form,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
