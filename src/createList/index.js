@@ -7,6 +7,7 @@ import Form from './Form';
 import Card from '../components/Card';
 import ListItemFooter from './ListItemFooter';
 import { Creators as ListAction } from '../store/action/list';
+import NewItem from './NewItem';
 
 function CreateList(props){
   function addProduct(product, list){
@@ -18,16 +19,22 @@ function CreateList(props){
       <Form 
         addProduct={addProduct}
         updateProduct={props.updateProduct}
+        url={props.match.params.action}
      />
 
       <div className='list-items-container'>
         {props.list.items.map(item => 
           <Card 
+            
             key={item.id} 
             toggleProduct={props.toggleProduct}
             item={item} 
-            footer={<ListItemFooter item={item} deleteProduct={props.deleteProduct} />} />
+            footer={<ListItemFooter item={item} deleteProduct={props.deleteProduct} list={props.list.list} />} />
         )}   
+
+        { props.match.params.action === 'edicao' &&
+          <NewItem />
+        }
       </div>
     </div>
   )

@@ -4,9 +4,10 @@ export const Types = {
 }
 
 export const Creators = {
-  startUpdate: product => ({
+  startUpdate: (product, list) => ({
     type: Types.START_UPDATE,
     product,
+    list,
   }),
   finishUpdate: product => ({
     type: Types.FINISH_UPDATE,

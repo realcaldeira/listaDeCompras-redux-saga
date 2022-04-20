@@ -7,12 +7,12 @@ import { bindActionCreators } from "redux";
 
 import { Creators as FormActions} from '../store/action/form';
 
-function ListItemFooter({item, deleteProduct, startUpdate}){
+function ListItemFooter({item, deleteProduct, startUpdate, list}){
   return(
     <div className='list-card-footer'>
       <div className='list-card-footer-actions'>
         <FontAwesomeIcon 
-          onClick={()=> startUpdate(item)}
+          onClick={()=> startUpdate(item, list)}
           icon={faPen}
           color="#00b0ff"
           size='1x' 

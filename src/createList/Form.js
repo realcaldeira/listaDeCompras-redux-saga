@@ -50,80 +50,86 @@ function Form(props){
   useEffect(()=>{
     if(props.form.action === 'update'){
       const { product, quantity, unit, price } = props.form.productToUpdate;
+      setList(props.form.listToUpdate);
       setProduct(product);
       setQuantity(quantity);
       setUnit(unit);
       setPrice(price);
       setShowError(false);
     }
-  },[props.form.action, props.form.productToUpdate])
+  },[props.form.action, props.form])
 
-  return(
-    <form className='form-container'>
-        <div className='form-row'>
-          <TextField
-              label="Lista"
-              name='list'
-              value={list}
-              onChange={(e)=> setList(e.target.value)}
-              required
-              error={!list && showError}
-            />
+  if(!props.showForm){
+    return <div></div> 
+  }else{
+    return(
+      <form className='form-container'>
+          <div className='form-row'>
+            <TextField
+                label="Lista"
+                name='list'
+                value={list}
+                onChange={(e)=> setList(e.target.value)}
+                required
+                error={!list && showError}
+              />
 
-          <Button
-            variant='outlined' 
-            color='secondary'
-            onClick={handleSubmit}
-          >
-            Salvar
-          </Button>
-        </div>
-
-        <div className='form-row'>
-          <TextField
-              label="Produto"
-              name='product'
-              value={product}
-              onChange={(e)=> setProduct(e.target.value)}
-              required
-              error={!product && showError}
-            />
-          <TextField
-              label="Quantidade"
-              name='quantity'
-              value={quantity}
-              onChange={(e)=> setQuantity(e.target.value)}
-              required
-              error={!quantity && showError}
-            />
-          <TextField
-              select
-              label="Unidade"
-              name='unit'
-              value={unit}
-              onChange={(e)=> setUnit(e.target.value)}
-              required
-              error={!unit && showError}
+            <Button
+              variant='outlined' 
+              color='secondary'
+              onClick={handleSubmit}
             >
-              {units.map((option) => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
-            </TextField>
-          <TextField
-              label="Preço"
-              name='price'
-              value={price}
-              onChange={(e)=> setPrice(e.target.value)}
-              InputProps={{
-                startAdornment: <InputAdornment position='start'>R$ </InputAdornment>
-              }}
-            />
-        </div> 
-        
-      </form>
-  )
+              Salvar
+            </Button>
+          </div>
+
+          <div className='form-row'>
+            <TextField
+                label="Produto"
+                name='product'
+                value={product}
+                onChange={(e)=> setProduct(e.target.value)}
+                required
+                error={!product && showError}
+              />
+            <TextField
+                label="Quantidade"
+                name='quantity'
+                value={quantity}
+                onChange={(e)=> setQuantity(e.target.value)}
+                required
+                error={!quantity && showError}
+              />
+            <TextField
+                select
+                label="Unidade"
+                name='unit'
+                value={unit}
+                onChange={(e)=> setUnit(e.target.value)}
+                required
+                error={!unit && showError}
+              >
+                {units.map((option) => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
+              </TextField>
+            <TextField
+                label="Preço"
+                name='price'
+                value={price}
+                onChange={(e)=> setPrice(e.target.value)}
+                InputProps={{
+                  startAdornment: <InputAdornment position='start'>R$ </InputAdornment>
+                }}
+              />
+          </div> 
+          
+        </form>
+    )
+  }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   form: state.form,
+  showForm: state.form.action === 'update' || ownProps.url === 'novo'
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch)
