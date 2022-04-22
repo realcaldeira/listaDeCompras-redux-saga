@@ -9,3 +9,18 @@
   width: 80%;
 }
 
+.home-image {
+  background-image: url(https://exame.com/wp-content/uploads/2019/05/zaitt01.jpg);
+  height: 830px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.new-list-container > a > div {
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
+.list-container > a > div {
+  background-color: rgb(255, 255, 255, 0.9);
+}
