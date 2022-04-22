@@ -16,9 +16,6 @@
   justify-content: center;
 }
 
-.card-content > svg {
-  margin: auto;
-}
 
 .card-footer {
   height: 40px;
@@ -26,4 +23,10 @@
 
 .card-img {
   object-fit: cover;
+}
+
+.new-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

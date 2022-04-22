@@ -33,7 +33,9 @@ function CreateList(props){
         )}   
 
         { props.match.params.action === 'edicao' &&
-          <NewItem />
+          <NewItem 
+            list={props.list.list}
+          />
         }
       </div>
     </div>

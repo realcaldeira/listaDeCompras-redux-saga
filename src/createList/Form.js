@@ -22,13 +22,14 @@ function Form(props){
     if(!product || !quantity || !unit || !list){
       setShowError(true)
     }else{
-      props.form.action === 'new' ? addItem(product, quantity, unit, price) : updateItem(product, quantity, unit, price)
+      props.form.action === 'update' ?  updateItem(product, quantity, unit, price) : addItem(product, quantity, unit, price)
     }
   }
 
   function addItem(product, quantity, unit, price){
     props.addProduct({product, quantity, unit, price}, list);
     clearState()
+    props.finishAdd();
   }
 
   function updateItem(product, quantity, unit, price){
@@ -56,6 +57,10 @@ function Form(props){
       setUnit(unit);
       setPrice(price);
       setShowError(false);
+    }
+
+    if(props.form.action === 'new'){
+      setList(props.form.listToUpdate)
     }
   },[props.form.action, props.form])
 
@@ -129,7 +134,7 @@ function Form(props){
 
 const mapStateToProps = (state, ownProps) => ({
   form: state.form,
-  showForm: state.form.action === 'update' || ownProps.url === 'novo'
+  showForm: state.form.action || ownProps.url === 'novo'
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch)

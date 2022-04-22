@@ -1,7 +1,7 @@
 import { Types } from '../action/form';
 
 const initialState = {
-  action: 'new',
+  action: null,
   listToUpdate: null,
   productToUpdate: {},
 }
@@ -16,7 +16,19 @@ export default function form(state=initialState, action){
       };
     case Types.FINISH_UPDATE:
       return {
+        action: null,
+        listToUpdate: null,
+        productToUpdate: {},
+      }
+    case Types.START_ADD:
+      return {
+        ...state,
         action: 'new',
+        listToUpdate: action.list,
+      };
+    case Types.FINISH_ADD:
+      return {
+        action: null,
         listToUpdate: null,
         productToUpdate: {},
       }
