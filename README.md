@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+<div align="center"><h1><strong>Lista de Compras</strong></h1> Version: 1 </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/assets/imagem1.PNG" width="1080">
+<img src="./src/assets/imagem2.PNG" width="1080">
 
-## Available Scripts
+<br>
+<br>
+<strong><h2>🎯 Sobre</h2></strong>
 
-In the project directory, you can run:
+<p>A proposta desse desenvolvimento consiste na implementação de um site que simule uma lista de compras que armazene no local storage e use o redux.</p>
 
-### `npm start`
+<hr/>
+<br>
+ <strong><h2>🛠️ Tecnologias usadas</h2></strong>
+<p></p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[- <strong>ReactJS</strong>](https://pt-br.reactjs.org/)
+[- <strong>Material UI</strong>](https://v3.mui.com/)
+[- <strong>Redux</strong>](https://redux.js.org/)
+[- <strong>Redux Saga</strong>](https://redux-saga.js.org/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<hr/>
+<br>
+<strong><h2>⚙️ Instalação</h2> </strong>
 
-### `npm test`
+</hr>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<strong>🔙 Pré-requisito </strong>
 
-### `npm run build`
+Antes de começar, você precisará ter instalado em seu computadore as seguintes ferramentas: [Git](https://git-scm.com/) , [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/) .
+Além disso, é bom ter um editor para trabalhar com seu código, como o [VSCode](https://code.visualstudio.com/).
+Você vai precisar ter uma conta no https://developers.google.com/custom-search/v1/introduction?hl=pt para fazer as chamadas via api e criar um arquivo .env colocando a chave da KEY (REACT_APP_GOOGLE_KEY=) e CX(REACT_APP_GOOGLE_CX=). 
+CASO DESEJE IGNORAR QUALQUER INSTALAÇÃO, SÓ ACESSE https://lista-de-compras-redux-saga-8a4tpc0gf-realcaldeira.vercel.app/
+<hr/>
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<strong>🔽 Clonando o repositório </strong>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<pre>via HTTPS
+$ git clone https://github.com/realcaldeira/listaDeCompras-redux-saga.git </pre>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<strong>🖥️ Iniciando o aplicativo</strong>
 
-### `npm run eject`
+<pre>
+# Acesse a pasta com comando <strong>cd </strong> 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Volte para a pasta anterior do aplicativo 
+$ cd ..
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Instale as dependências
+$ yarn
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este projeto foi feito com ❤ por Lucas Caldeira
