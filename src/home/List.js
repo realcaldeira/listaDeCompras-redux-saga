@@ -13,8 +13,8 @@ export default function List(props){
     <CustomCard 
       containerClass="list-container"
       link="/lista/edicao"
-      footer={<ListFooter total={props.total} />}
-     
+      footer={<ListFooter total={props.total} date={props.date}/>}
+      cardClass={props.openedItems < 1 ? 'closed-list' : 'opened-list'}
     >
      <div>
         <p className="title">{props.list}</p>
